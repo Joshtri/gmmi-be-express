@@ -13,8 +13,8 @@ router.get('/summary', authenticateToken, AdminController.getSummary);
 router.post('/change-password', authenticateToken, AdminController.changePassword);
 
 // Super Admin only
-router.get('/', authenticateToken, isSuperAdmin, AdminController.getAdmins);
-router.post('/register', authenticateToken, isSuperAdmin, AdminController.register);
+router.get('/', AdminController.getAdmins);
+router.post('/register', AdminController.register);
 router.put('/:id', authenticateToken, isSuperAdmin, AdminController.updateAdmin);
 router.patch('/:id/status', authenticateToken, isSuperAdmin, AdminController.toggleAdminStatus);
 router.post('/reset-password', authenticateToken, isSuperAdmin, AdminController.resetAdminPassword);
